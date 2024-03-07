@@ -8,7 +8,7 @@ if (process.env.NODE_ENV) {
 }
 
 const envConfig = dotenv.config({
-  path: path.resolve(__dirname, `./src/configs/environments/${environment}.env`),
+  path: path.resolve(__dirname, `./src/config/environments/${environment}.env`),
 });
 
 function env(key) {
@@ -46,7 +46,7 @@ export const AppDataSource = new DataSource({
   migrations: ['./src/database/migrations/**/*{.ts,.js}'],
   migrationsTableName: 'migrations',
   migrationsRun: true,
-  timezone: 'Z',
+  timezone: 'UTC',
 });
 
 export default {
@@ -66,5 +66,5 @@ export default {
   extra: {
     ssl: false,
   },
-  timezone: 'Z',
+  timezone: 'UTC',
 };
